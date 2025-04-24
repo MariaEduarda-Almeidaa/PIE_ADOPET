@@ -1,0 +1,43 @@
+.Header-Navbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 10%;
+  background: #697565;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.Logo {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 16px;
+}
+
+.Navbar a {
+  position: relative;
+  font-size: 20px;
+  color: floralwhite;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+.Navbar a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: floralwhite;
+  transition: 0.3s;
+}
+
+.Navbar a:hover::before {
+  width: 100%;
+}

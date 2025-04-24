@@ -1,0 +1,66 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+.Logo-Home {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #697565;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.Login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #ecdfcc;
+  max-width: 50%;
+  width: 400px;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #a3b18a;
+  color: #697565;
+  border: none;
+  outline: none;
+}
+
+.login-button {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #697565;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.signup-link {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #4a5a47;
+  cursor: pointer;
+}
+
+.divider {
+  border: 1px solid #4a5a47;
+}
+
+.google-button {
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #697565;
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
