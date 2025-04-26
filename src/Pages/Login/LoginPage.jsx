@@ -5,7 +5,7 @@ import Logo from "../../assets/Logo/Logo.png";
 
 const Login = () => {
   function formatarCpf(valor) {
-    valor = valor.replace(/\D/g, ""); // Remove tudo que não é número
+    valor = valor.replace(/\D/g, "");
     valor = valor.slice(0, 11);
     valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
     valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
@@ -22,7 +22,7 @@ const Login = () => {
       setMensagem("❌ Preencha todos os campos!");
       return;
     }
-  
+
     try {
       const resposta = await fetch("http://localhost:5000/login", {
         method: "POST",
@@ -34,21 +34,28 @@ const Login = () => {
           senha,
         }),
       });
-  
+
       const data = await resposta.json();
-  
+
       if (data.error) {
         setMensagem(`❌ ${data.error}`);
       } else {
         setMensagem("✅ Login realizado com sucesso!");
-        // Aqui você pode redirecionar o usuário, ex: navegar para a dashboard
       }
     } catch (error) {
       console.error("Erro:", error);
       setMensagem("❌ Erro ao conectar com o servidor.");
     }
   };
-    
+
+  // Função para fazer scroll
+  const handleScrollToRegister = () => {
+    const registerSection = document.getElementById("register-section");
+    if (registerSection) {
+      registerSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="login-container">
       <img src={Logo} alt="Adopet Logo" className="logo-img" />
@@ -79,7 +86,10 @@ const Login = () => {
 
         {mensagem && <p style={{ marginTop: "10px" }}>{mensagem}</p>}
 
-        <div className="signup-link">Não tenho conta</div>
+        {/* AQUI chama o scroll */}
+        <div className="signup-link" onClick={handleScrollToRegister}>
+          Não tenho conta
+        </div>
 
         <hr className="divider" />
 

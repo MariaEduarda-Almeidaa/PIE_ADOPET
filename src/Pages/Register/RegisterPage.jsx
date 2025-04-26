@@ -118,7 +118,7 @@ function formatarNumero(valor) {
     <div>
       <Navbar />
       <div>
-        <div className="Register-container">
+      <div id="register-section" className="Register-container">
           <img src={Logo} alt="Adopet Logo" className="logo-img" />
           <div className="Register-form">
             <label htmlFor="cpf">CPF</label>
