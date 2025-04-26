@@ -54,3 +54,20 @@
   margin-bottom: 50px;
   object-fit: contain;
 }
+
+.input-com-icone {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icone-bandeira {
+  position: absolute;
+  left: 10px;
+  width: 30px;
+  height: auto;
+}
+
+.input-com-icone input {
+  padding-left: 50px; /* Espaço para a bandeira */
+}

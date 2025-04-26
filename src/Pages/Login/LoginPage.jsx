@@ -1,30 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { FaGoogle } from "react-icons/fa";
 import Logo from "../../assets/Logo/Logo.png";
 
-const Home = () => {
+const Login = () => {
+  function formatarCpf(valor) {
+    valor = valor.replace(/\D/g, ""); // Remove tudo que não é número
+    valor = valor.slice(0, 11);
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d)/, "$1.$2");
+    valor = valor.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    return valor;
+  }
+
+  const [cpf, setCpf] = useState("");
+  const [senha, setSenha] = useState("");
+  const [mensagem, setMensagem] = useState("");
+
+  const handleLogin = async () => {
+    if (!cpf || !senha) {
+      setMensagem("❌ Preencha todos os campos!");
+      return;
+    }
+  
+    try {
+      const resposta = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cpf,
+          senha,
+        }),
+      });
+  
+      const data = await resposta.json();
+  
+      if (data.error) {
+        setMensagem(`❌ ${data.error}`);
+      } else {
+        setMensagem("✅ Login realizado com sucesso!");
+        // Aqui você pode redirecionar o usuário, ex: navegar para a dashboard
+      }
+    } catch (error) {
+      console.error("Erro:", error);
+      setMensagem("❌ Erro ao conectar com o servidor.");
+    }
+  };
+    
   return (
     <div className="login-container">
-    <img src={Logo} alt="Adopet Logo" className="logo-img" />
+      <img src={Logo} alt="Adopet Logo" className="logo-img" />
       <div className="Login-form">
-        <label htmlFor="CPF">CPF</label>
+        <label htmlFor="cpf">CPF</label>
         <input
-          text="CPF"
-          id="CPF"
+          type="text"
+          id="cpf"
           placeholder="Digite seu CPF"
+          value={cpf}
+          onChange={(e) => setCpf(formatarCpf(e.target.value))}
           className="input-field"
         />
+
         <label htmlFor="password">Senha</label>
         <input
           type="password"
           id="password"
           placeholder="Digite sua senha"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
           className="input-field"
         />
-        <button className="login-button">OK</button>
+
+        <button className="login-button" onClick={handleLogin}>
+          OK
+        </button>
+
+        {mensagem && <p style={{ marginTop: "10px" }}>{mensagem}</p>}
+
         <div className="signup-link">Não tenho conta</div>
+
         <hr className="divider" />
+
         <button className="google-button">
           <FaGoogle style={{ marginRight: "8px", color: "white" }} />
           Conectar com o Google
@@ -34,4 +92,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;
