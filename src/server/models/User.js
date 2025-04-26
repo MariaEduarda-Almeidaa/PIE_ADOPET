@@ -3,9 +3,10 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema({
   nome: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  numero: { type: String, required: true, unique: true },
-  cpf: { type: String, required: true, unique: true },
-  senha: { type: String, required: true },
+  numero: { type: String, required: false, unique: false },
+  cpf: { type: String, required: false, unique: false },
+  senha: { type: String, required: false },
+  foto: { type: String }, // <-- novo campo
 }, {
   timestamps: true
 });

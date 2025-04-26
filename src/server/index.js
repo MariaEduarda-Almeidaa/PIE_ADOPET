@@ -155,3 +155,36 @@ app.delete("/user/:id", async (req, res) => {
     res.status(500).json({ error: "Erro ao deletar usuário." });
   }
 });
+
+// Nova rota para login com Google
+app.post("/google-register", async (req, res) => {
+  const { nome, email, foto } = req.body;
+
+  if (!email || !nome) {
+    return res.status(400).json({ error: "Dados insuficientes." });
+  }
+
+  try {
+    let usuarioExistente = await User.findOne({ email });
+
+    if (usuarioExistente) {
+      // Se já existe, apenas responde e não tenta criar novo
+      return res.status(200).json({ message: "Usuário já registrado." });
+    }
+
+    const novoUsuario = new User({
+      nome,
+      email,
+      foto,
+      numero: "",
+      cpf: "",
+      senha: "",
+    });
+
+    await novoUsuario.save();
+    res.status(201).json({ message: "Usuário registrado via Google!" });
+  } catch (error) {
+    console.error("Erro ao registrar usuário Google:", error);
+    res.status(500).json({ error: "Erro interno ao registrar usuário Google." });
+  }
+});

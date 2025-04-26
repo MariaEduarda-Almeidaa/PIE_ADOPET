@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Login.css";
 import { FaGoogle } from "react-icons/fa";
 import Logo from "../../assets/Logo/Logo.png";
+import { auth, provider } from "../../firebase"; // ajusta o caminho se precisar
+import { signInWithPopup } from "firebase/auth";
 
 const Login = () => {
   function formatarCpf(valor) {
@@ -56,6 +58,32 @@ const Login = () => {
     }
   };
 
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log("Usuário logado:", user);
+  
+      // Agora, envia para o backend no /google-register
+      await fetch("http://localhost:5000/google-register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome: user.displayName,
+          email: user.email,
+          foto: user.photoURL,
+        }),
+      });
+  
+      alert(`✅ Bem-vindo, ${user.displayName}!`);
+    } catch (error) {
+      console.error("Erro ao fazer login com Google:", error);
+      alert("❌ Erro ao conectar com o Google.");
+    }
+  };
+  
   return (
     <div className="login-container">
       <img src={Logo} alt="Adopet Logo" className="logo-img" />
@@ -92,10 +120,9 @@ const Login = () => {
         </div>
 
         <hr className="divider" />
-
-        <button className="google-button">
-          <FaGoogle style={{ marginRight: "8px", color: "white" }} />
-          Conectar com o Google
+        <button className="google-button" onClick={handleGoogleLogin}>
+        <FaGoogle style={{ marginRight: "8px", color: "white" }} />
+        Conectar com o Google
         </button>
       </div>
     </div>

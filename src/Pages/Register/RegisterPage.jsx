@@ -3,6 +3,8 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "./Register.css";
 import { FaGoogle } from "react-icons/fa";
 import Logo from "../../assets/Logo/Logo.png";
+import { auth, provider } from "../../firebase"; // ajusta o caminho se precisar
+import { signInWithPopup } from "firebase/auth";
 
 const Register = () => {
 
@@ -45,6 +47,35 @@ function formatarNumero(valor) {
   valor = valor.replace(/(\d{5})(\d)/, "$1-$2"); // Coloca traço depois de 5 números
   return valor;
 }
+
+const handleGoogleLogin = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    console.log("Usuário logado:", user);
+    alert(`✅ Bem-vindo, ${user.displayName}!`);
+
+    // Agora, envia para o backend também:
+    await fetch("http://localhost:5000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nome: user.displayName || "Anônimo",
+        email: user.email,
+        numero: "",
+        cpf: "",
+        senha: user.uid, // você pode usar o UID do Google como senha fake
+        foto: user.photoURL,
+      }),
+    });
+
+  } catch (error) {
+    console.error("Erro ao fazer login com Google:", error);
+    alert("❌ Crie uma conta primeiro!");
+  }
+};
 
   // Estados
   const [cpf, setCpf] = useState("");
@@ -198,9 +229,9 @@ function formatarNumero(valor) {
             {mensagem && <p style={{ marginTop: "10px" }}>{mensagem}</p>}
 
             <hr className="divider" />
-            <button className="google-button">
-              <FaGoogle style={{ marginRight: "8px", color: "white" }} />
-              Conectar com o Google
+            <button className="google-button" onClick={handleGoogleLogin}>
+            <FaGoogle style={{ marginRight: "8px", color: "white" }} />
+            Conectar com o Google
             </button>
           </div>
         </div>
