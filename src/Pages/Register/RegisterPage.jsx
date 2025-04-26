@@ -19,6 +19,13 @@ const Register = () => {
               placeholder="Digite seu CPF"
               className="input-field"
             />
+            <label htmlFor="email">E-mail</label>
+            <input
+              text="email"
+              id="email"
+              placeholder="Digite seu e-mail"
+              className="input-field"
+            />
             <label htmlFor="password">Senha</label>
             <input
               type="password"
