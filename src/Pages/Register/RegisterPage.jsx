@@ -146,6 +146,8 @@ const handleGoogleLogin = async () => {
   };
   
   return (
+  <div className="register-page">
+    <form id="register-form" className="register-form">
     <div>
       <Navbar />
       <div>
@@ -237,6 +239,8 @@ const handleGoogleLogin = async () => {
         </div>
       </div>
     </div>
+    </form>
+  </div>
   );
 };
 

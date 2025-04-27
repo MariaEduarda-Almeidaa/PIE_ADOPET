@@ -1,4 +1,4 @@
-.Header-Navbar{
+.Header-Navbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -19,12 +19,23 @@
   height: 16px;
 }
 
+.Logo img {
+  height: 50px; /* Ajuste conforme necessário */
+}
+
+.Navbar {
+  display: flex;
+  align-items: center;
+}
+
 .Navbar a {
   position: relative;
   font-size: 20px;
   color: floralwhite;
   font-weight: 500;
   margin-left: 40px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .Navbar a::before {

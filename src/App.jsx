@@ -2,11 +2,13 @@ import React from "react";
 import Navbar from "./Components/Navbar//Navbar";
 import Login from "./Pages/Login/LoginPage";
 import Register from "./Pages/Register/RegisterPage";
+import Home from "./Pages/Home/Home";
 
 const App = () => {
   return (
     <>
       <Navbar />;
+      <Home />;
       <Login />;
       <Register />;
     </>

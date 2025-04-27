@@ -6,6 +6,7 @@ import { auth, provider } from "../../firebase"; // ajusta o caminho se precisar
 import { signInWithPopup } from "firebase/auth";
 
 const Login = () => {
+  
   function formatarCpf(valor) {
     valor = valor.replace(/\D/g, "");
     valor = valor.slice(0, 11);
@@ -85,6 +86,8 @@ const Login = () => {
   };
   
   return (
+  <div className="login-page">
+    <form id="login-form" className="login-form">
     <div className="login-container">
       <img src={Logo} alt="Adopet Logo" className="logo-img" />
       <div className="Login-form">
@@ -126,6 +129,8 @@ const Login = () => {
         </button>
       </div>
     </div>
+    </form>
+  </div>
   );
 };
 
