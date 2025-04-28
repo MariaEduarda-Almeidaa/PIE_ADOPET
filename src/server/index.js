@@ -158,30 +158,43 @@ app.delete("/user/:id", async (req, res) => {
 
 // Nova rota para login com Google
 app.post("/google-register", async (req, res) => {
-  const { nome, email, foto} = req.body;
+  const { nome, email, foto } = req.body;
 
-  console.log("Dados recebidos:", { nome, email, foto}); // Adicione este log
+  console.log("Dados recebidos:", { nome, email, foto });
 
   if (!email || !nome) {
+    console.error("Erro: Dados insuficientes.");
     return res.status(400).json({ error: "Dados insuficientes." });
+  }
+  if (!email || !nome) {
+    return res.status(400).json({ error: "Nome e email são obrigatórios." });
+  }
+  
+  if (!email.includes("@")) {
+    return res.status(400).json({ error: "Email inválido." });
   }
 
   try {
+    console.log("Verificando se o usuário já existe...");
     let usuarioExistente = await User.findOne({ email });
 
     if (usuarioExistente) {
-      // Se já existe, apenas responde e não tenta criar novo
+      console.log("Usuário já registrado:", usuarioExistente);
       return res.status(200).json({ message: "Usuário já registrado." });
     }
 
+    console.log("Criando novo usuário...");
     const novoUsuario = new User({
       nome,
       email,
       foto,
-      senha: "",
+      senha: "", // Senha vazia para login via Google
     });
 
+    console.log("Salvando novo usuário no banco...");
     await novoUsuario.save();
+    console.log("Usuário registrado com sucesso:", novoUsuario);
+
     res.status(201).json({ message: "Usuário registrado via Google!" });
   } catch (error) {
     console.error("Erro ao registrar usuário Google:", error);
