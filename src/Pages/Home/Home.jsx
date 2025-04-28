@@ -4,26 +4,26 @@ import videoBackground from "../../assets/Videos/Apresentacao.mp4";
 import Logo from "../../assets/Logo/Logo.png";
 
 const Home = () => {
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [showControls, setShowControls] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      const enableSound = async () => {
-        try {
-          await video.play();
-          video.muted = false;
-          setIsPlaying(true);
-        } catch (err) {
-          console.log("Autoplay com som não permitido:", err);
+      const handleCanPlay = () => {
+        video.play().catch(err => {
+          console.log("Autoplay não permitido:", err);
           video.muted = true;
           setIsMuted(true);
-        }
+        });
       };
-      enableSound();
+
+      video.addEventListener('canplay', handleCanPlay);
+      
+      return () => {
+        video.removeEventListener('canplay', handleCanPlay);
+      };
     }
   }, []);
 
@@ -38,11 +38,10 @@ const Home = () => {
     if (videoRef.current) {
       if (videoRef.current.paused) {
         videoRef.current.play();
-        setIsPlaying(true);
       } else {
         videoRef.current.pause();
-        setIsPlaying(false);
       }
+      setIsPlaying(!videoRef.current.paused);
     }
   };
 
@@ -53,11 +52,7 @@ const Home = () => {
         <p>Encontre seu novo amigo peludo aqui.</p>
       </div>
       
-      <div 
-        className="video-container"
-        onMouseEnter={() => setShowControls(true)}
-        onMouseLeave={() => setShowControls(false)}
-      >
+      <div className="video-container">
         <video
           ref={videoRef}
           autoPlay
@@ -65,24 +60,15 @@ const Home = () => {
           muted={isMuted}
           playsInline
           className="centered-video"
-          controls={false}
           onClick={togglePlayPause}
         >
           <source src={videoBackground} type="video/mp4" />
-          Seu navegador não suporta vídeos HTML5.
         </video>
-
-        {/* Botão de pause centralizado */}
-        {(!isPlaying || showControls) && (
-          <div className="center-play-button" onClick={togglePlayPause}>
-            <button className="play-pause-button">
-              {isPlaying ? '⏸' : '▶'}
-            </button>
-          </div>
-        )}
-
-        {/* Botão de mute no canto */}
-        <div className="mute-button">
+        
+        <div className="video-controls">
+          <button onClick={togglePlayPause} className="control-button">
+            {isPlaying ? '⏸' : '▶'}
+          </button>
           <button onClick={toggleMute} className="control-button">
             {isMuted ? '🔇' : '🔊'}
           </button>

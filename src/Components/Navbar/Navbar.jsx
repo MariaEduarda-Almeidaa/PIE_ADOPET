@@ -50,7 +50,8 @@ const Navbar = () => {
         </a>
       </nav>
     </header>
-  );
+  )
+  
 };
 
 export default Navbar;

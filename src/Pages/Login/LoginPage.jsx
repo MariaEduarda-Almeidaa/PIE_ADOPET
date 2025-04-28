@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import { FaGoogle } from "react-icons/fa";
 import Logo from "../../assets/Logo/Logo.png";
-import { auth, provider } from "../../server/firebase"; // ajusta o caminho se precisar
+import { auth, provider } from "../../server/firebase";
 import { signInWithPopup } from "firebase/auth";
 
 const Login = () => {
+  const navigate = useNavigate();
   
   function formatarCpf(valor) {
     valor = valor.replace(/\D/g, "");
@@ -44,18 +46,12 @@ const Login = () => {
         setMensagem(`❌ ${data.error}`);
       } else {
         setMensagem("✅ Login realizado com sucesso!");
+        // Redireciona para a página inicial após login bem-sucedido
+        navigate('/');
       }
     } catch (error) {
       console.error("Erro:", error);
       setMensagem("❌ Erro ao conectar com o servidor.");
-    }
-  };
-
-  // Função para fazer scroll
-  const handleScrollToRegister = () => {
-    const registerSection = document.getElementById("register-section");
-    if (registerSection) {
-      registerSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -65,7 +61,6 @@ const Login = () => {
       const user = result.user;
       console.log("Usuário logado:", user);
   
-      // Agora, envia para o backend no /google-register
       await fetch("http://localhost:5000/google-register", {
         method: "POST",
         headers: {
@@ -79,6 +74,7 @@ const Login = () => {
       });
   
       alert(`✅ Bem-vindo, ${user.displayName}!`);
+      navigate('/'); // Redireciona após login com Google
     } catch (error) {
       console.error("Erro ao fazer login com Google:", error);
       alert("❌ Erro ao conectar com o Google.");
@@ -115,15 +111,17 @@ const Login = () => {
 
         {mensagem && <p style={{ marginTop: "10px" }}>{mensagem}</p>}
 
-        {/* AQUI chama o scroll */}
-        <div className="signup-link" onClick={handleScrollToRegister}>
+        <div 
+          className="signup-link" 
+          onClick={() => navigate('/register')}
+        >
           Não tenho conta
         </div>
 
         <hr className="divider" />
         <button className="google-button" onClick={handleGoogleLogin}>
-        <FaGoogle style={{ marginRight: "8px", color: "white" }} />
-        Conectar com o Google
+          <FaGoogle style={{ marginRight: "8px", color: "white" }} />
+          Conectar com o Google
         </button>
       </div>
     </div>
