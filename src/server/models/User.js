@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema({
   nome: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  numero: { type: String, required: false, unique: false },
-  cpf: { type: String, required: false, unique: false },
-  senha: { type: String, required: false },
-  foto: { type: String }, // <-- novo campo
+  foto: { type: String },
+  numero: { type: String },
+  cpf: { type: String, default: null }, // Permite valores nulos
+  senha: { type: String },
 }, {
   timestamps: true
 });

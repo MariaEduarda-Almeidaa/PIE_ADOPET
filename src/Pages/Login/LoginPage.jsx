@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { FaGoogle } from "react-icons/fa";
 import Logo from "../../assets/Logo/Logo.png";
-import { auth, provider } from "../../firebase"; // ajusta o caminho se precisar
+import { auth, provider } from "../../server/firebase"; // ajusta o caminho se precisar
 import { signInWithPopup } from "firebase/auth";
 
 const Login = () => {
@@ -86,8 +86,6 @@ const Login = () => {
   };
   
   return (
-  <div className="login-page">
-    <form id="login-form" className="login-form">
     <div className="login-container">
       <img src={Logo} alt="Adopet Logo" className="logo-img" />
       <div className="Login-form">
@@ -129,8 +127,6 @@ const Login = () => {
         </button>
       </div>
     </div>
-    </form>
-  </div>
   );
 };
 

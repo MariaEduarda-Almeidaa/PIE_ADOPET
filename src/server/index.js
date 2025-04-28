@@ -158,7 +158,9 @@ app.delete("/user/:id", async (req, res) => {
 
 // Nova rota para login com Google
 app.post("/google-register", async (req, res) => {
-  const { nome, email, foto } = req.body;
+  const { nome, email, foto} = req.body;
+
+  console.log("Dados recebidos:", { nome, email, foto}); // Adicione este log
 
   if (!email || !nome) {
     return res.status(400).json({ error: "Dados insuficientes." });
@@ -176,8 +178,6 @@ app.post("/google-register", async (req, res) => {
       nome,
       email,
       foto,
-      numero: "",
-      cpf: "",
       senha: "",
     });
 

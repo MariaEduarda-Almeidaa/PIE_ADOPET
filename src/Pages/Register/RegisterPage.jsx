@@ -3,7 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import "./Register.css";
 import { FaGoogle } from "react-icons/fa";
 import Logo from "../../assets/Logo/Logo.png";
-import { auth, provider } from "../../firebase"; // ajusta o caminho se precisar
+import { auth, provider } from "../../server/firebase"; // ajusta o caminho se precisar
 import { signInWithPopup } from "firebase/auth";
 
 const Register = () => {
@@ -56,7 +56,7 @@ const handleGoogleLogin = async () => {
     alert(`✅ Bem-vindo, ${user.displayName}!`);
 
     // Agora, envia para o backend também:
-    await fetch("http://localhost:5000/register", {
+    await fetch("http://localhost:5000/google-register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,9 +64,6 @@ const handleGoogleLogin = async () => {
       body: JSON.stringify({
         nome: user.displayName || "Anônimo",
         email: user.email,
-        numero: "",
-        cpf: "",
-        senha: user.uid, // você pode usar o UID do Google como senha fake
         foto: user.photoURL,
       }),
     });
@@ -146,8 +143,6 @@ const handleGoogleLogin = async () => {
   };
   
   return (
-  <div className="register-page">
-    <form id="register-form" className="register-form">
     <div>
       <Navbar />
       <div>
@@ -238,8 +233,6 @@ const handleGoogleLogin = async () => {
           </div>
         </div>
       </div>
-    </div>
-    </form>
   </div>
   );
 };
