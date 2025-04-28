@@ -5,14 +5,6 @@
   padding-top: 100px;
 }
 
-.Logo-Home {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #697565;
-  margin-bottom: 20px;
-  position: relative;
-}
-
 .Login-form {
   display: flex;
   flex-direction: column;
@@ -62,11 +54,4 @@
   font-weight: bold;
   border: none;
   cursor: pointer;
-}
-
-.logo-img {
-  width: 250px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  object-fit: contain;
 }

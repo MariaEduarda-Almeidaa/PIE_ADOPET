@@ -7,11 +7,10 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
-  background: url("./assets/Background/Background.jpg") no-repeat;
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Impede rolagem horizontal */
 }
 
 a {
