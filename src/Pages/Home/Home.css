@@ -29,15 +29,18 @@ html, body {
 .video-container {
   position: relative;
   width: 80%; /* Ajuste conforme necessário */
-  max-width: 800px; /* Mantém o vídeo em um tamanho razoável */
+  max-width: 800px;
   margin: 0 auto;
+  border-radius: 10px; /* Valor que define o arredondamento */
+  overflow: hidden; /* Fundamental para que as bordas funcionem */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: sombra para melhorar o visual */
 }
 
 .centered-video {
   width: 100%;
   height: auto;
   display: block;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Não precisa de border-radius aqui pois o container já corta o conteúdo */
 }
 
 .video-controls {
