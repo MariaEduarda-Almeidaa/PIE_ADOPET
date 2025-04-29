@@ -147,7 +147,7 @@ const handleGoogleLogin = async () => {
       <Navbar />
       <div>
       <div id="register-section" className="Register-container">
-          <img src={Logo} alt="Adopet Logo" className="logo-img" />
+          <img src={Logo} alt="Adopet Logo" className="logo-img-register" />
           <p className="apresentacao">Primeiro comece criando uma conta!</p>
           <div className="Register-form">
             <label htmlFor="cpf">CPF</label>

@@ -16,6 +16,13 @@
   margin-bottom: 20px;
 }
 
+.logo-img-login {
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  object-fit: contain;
+}
+
 .input-field {
   padding: 12px;
   border-radius: 8px;

@@ -25,6 +25,13 @@ html, body {
   margin-bottom: 20px;
 }
 
+.logo-img-home {
+  width: 250px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  object-fit: contain;
+}
+
 .video-container {
   position: relative;
   width: 80%; /* Ajuste conforme necessário */
