@@ -8,7 +8,7 @@ import gabrielImage from "../../assets/Devs/Gabriel.jpg";
 import mariaImage from "../../assets/Devs/Maria.jpg";
 import rayssaImage from "../../assets/Devs/rayssa.jpg";
 import samanthaImage from "../../assets/Devs/Samantha.png";
-//import victorImage from "../../assets/Devs/victor-pimenta.jpg";
+import victorImage from "../../assets/Devs/VitorPimenta.jpg";
 
 const devs = [
     {
@@ -23,7 +23,7 @@ const devs = [
       nome: "Maria Eduarda Fernandes",
       contribuicao: "Frontend e UI/UX",
       imagem: mariaImage,
-      github: "https://github.com/mariaeduardafernandes",
+      github: "https://github.com/MariaEduarda-Almeidaa",
       linkedin: "https://www.linkedin.com/in/mariaeduardafernandes",
       instagram: "https://www.instagram.com/maria_eduardaa900",
     },
@@ -43,14 +43,14 @@ const devs = [
       linkedin: "https://www.linkedin.com/in/samanthasilva",
       instagram: "https://www.instagram.com/samanthasilva",
     },
-    //{
-      //nome: "Victor Pimenta",
-      //contribuicao: "Backend e Segurança",
-      //imagem: victorImage,
-      //github: "https://github.com/victorpimenta",
-      //linkedin: "https://www.linkedin.com/in/victorpimenta",
-     // instagram: "https://www.instagram.com/victorpimenta",
-    //},  
+    {
+      nome: "Victor Pimenta",
+      contribuicao: "Backend e Segurança",
+      imagem: victorImage,
+      github: "https://github.com/victorpimenta",
+      linkedin: "https://www.linkedin.com/in/victorpimenta",
+      instagram: "https://www.instagram.com/victorpimenta",
+    },  
 ];
 
 const Sobre = () => {
