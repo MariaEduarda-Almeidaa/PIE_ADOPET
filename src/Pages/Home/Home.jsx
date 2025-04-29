@@ -49,7 +49,7 @@ const Home = () => {
     <div className="home-container">
       <div className="welcome-section">
         <img src={Logo} alt="Adopet Logo" className="logo-img" />
-        <p>Encontre seu novo amigo peludo aqui.</p>
+        <p className="apresentacao">Encontre seu novo amigo peludo aqui.</p>
       </div>
       
       <div className="video-container">

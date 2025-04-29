@@ -148,8 +148,10 @@ const handleGoogleLogin = async () => {
       <div>
       <div id="register-section" className="Register-container">
           <img src={Logo} alt="Adopet Logo" className="logo-img" />
+          <p className="apresentacao">Primeiro comece criando uma conta!</p>
           <div className="Register-form">
             <label htmlFor="cpf">CPF</label>
+            <div className="input-com-tooltip">
             <input
               type="text"
               id="cpf"
@@ -158,6 +160,9 @@ const handleGoogleLogin = async () => {
               onChange={(e) => setCpf(formatarCpf(e.target.value)) && (validarCpf(e.target.value))}
               className="input-field"
             />
+            <span className="tooltip-icon">!</span>
+            <div className="tooltip-text">Utilizamos CPF para garantir segurança durante as adoções e doações.</div>
+            </div>
 
             <label htmlFor="nome">Nome Completo</label>
             <input
@@ -181,9 +186,6 @@ const handleGoogleLogin = async () => {
 
             <label htmlFor="numero">Número de telefone</label>
             <div className="input-com-icone">
-            <span role="img" aria-label="brazil" className="icone-bandeira">
-              🇧🇷
-            </span>
             <img
               src="https://flagcdn.com/w40/br.png"
               alt="Bandeira do Brasil"

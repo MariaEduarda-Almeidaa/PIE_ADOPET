@@ -16,7 +16,6 @@ html, body {
   overflow: auto;
   position: relative;
   padding-top: 80px; /* Adicione um espaçamento igual ou maior que a altura da navbar */
-  /* Cor de fundo caso o vídeo não cubra toda a área */
 }
 
 .welcome-section {
@@ -69,4 +68,9 @@ html, body {
 .control-button:hover {
   background: rgba(0, 0, 0, 0.9);
   transform: scale(1.1);
+}
+
+.apresentacao {
+  color:  #697565;
+  padding-bottom: 2%; /* Adicione um espaçamento igual ou maior que a altura da navbar */
 }
