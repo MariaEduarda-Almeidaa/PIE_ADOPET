@@ -13,10 +13,9 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-links">
             <Link to="/sobre">Sobre nós</Link>
-            <Link to="/contato">Contato</Link>
             <Link to="/privacidade">Política de Privacidade</Link>
           </div>
-          <p className="copyright">© 2025 Adopex - Todos os direitos reservados</p>
+          <p className="copyright">© 2024 Adopet - Todos os direitos reservados</p>
         </div>
       </footer>
     </div>

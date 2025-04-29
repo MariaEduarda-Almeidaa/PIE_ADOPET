@@ -6,6 +6,7 @@ import Navbar from "../src/Components/Navbar/Navbar.jsx";
 import Footer from "../src/Components/Footer/Footer.jsx"; 
 import AdocaoPage from "../src/Pages/Adocao/AdocaoPage.jsx"
 import SobrePage from "../src/Pages/Sobre/SobrePage.jsx"
+import PrivacyPolicy from '../src/Pages/Privacidade/PrivacyPolicy.jsx';
 import Layout from './Components/Layout/Layout';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/adocao" element={<AdocaoPage />} />
         <Route path="/sobre" element={<SobrePage />} />
+        <Route path="/privacidade" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </Router>
