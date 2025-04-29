@@ -2,6 +2,7 @@ import React from "react";
 import "./Sobre.css"; 
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import Navbar from "../../Components/Navbar/Navbar"; 
+import Logo from "../../assets/Logo/Logo.png";
 
 
 import gabrielImage from "../../assets/Devs/Gabriel.jpg";
@@ -13,7 +14,7 @@ import victorImage from "../../assets/Devs/VitorPimenta.jpg";
 const devs = [
     {
       nome: "Gabriel Fiorio",
-      contribuicao: "Infraestrutura e Backend",
+      contribuicao: "Prototipação",
       imagem: gabrielImage,
       github: "https://github.com/gabfiorio",
       linkedin: "https://www.linkedin.com/in/gabrielfiorio",
@@ -29,15 +30,15 @@ const devs = [
     },
     {
       nome: "Rayssa Ferreira",
-      contribuicao: "Frontend e Integrações",
+      contribuicao: "Backend e Banco de dados",
       imagem: rayssaImage,
-      github: "https://github.com/rayssaferreira",
-      linkedin: "https://www.linkedin.com/in/rayssaferreira",
-      instagram: "https://www.instagram.com/rayssaferreira",
+      github: "https://github.com/ferreirayssa",
+      linkedin: "https://www.linkedin.com/in/rayssa-ferreira-315508245/",
+      instagram: "https://www.instagram.com/ferreirayssa/",
     },
     {
       nome: "Samantha Silva",
-      contribuicao: "Documentação e Banco de Dados",
+      contribuicao: "Documentação",
       imagem: samanthaImage,
       github: "https://github.com/samanthasilva",
       linkedin: "https://www.linkedin.com/in/samanthasilva",
@@ -57,7 +58,8 @@ const Sobre = () => {
   return (
     <div className="sobre-nos-container">
       <Navbar />
-      <h1 className="titulo-sobre"></h1>
+      <img src={Logo} alt="Adopet Logo" className="logo-img-sobre" />
+      <p className="apresentacao">Conheça os desenvolvedores do site</p>
       <div className="devs-grid">
         {devs.map((dev, index) => (
           <div key={index} className="dev-card">

@@ -83,7 +83,7 @@ const Login = () => {
   
   return (
     <div className="login-container">
-      <img src={Logo} alt="Adopet Logo" className="logo-img" />
+      <img src={Logo} alt="Adopet Logo" className="logo-img-login" />
       <div className="Login-form">
         <label htmlFor="cpf">CPF</label>
         <input
