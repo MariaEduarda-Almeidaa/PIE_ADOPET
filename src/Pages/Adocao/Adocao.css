@@ -71,10 +71,11 @@
   cursor: pointer;
   transition: background 0.3s;
   margin-top: auto;
+  text-align: center; /* Centraliza o texto dentro do botão */
 }
 
 .adopt-button:hover {
-  background-color: #ff5252;
+  background-color: #48952e;
 }
 
 
