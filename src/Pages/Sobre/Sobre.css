@@ -90,7 +90,7 @@ object-fit: contain;
 }
 
 .redes-sociais a {
-  color: white; /* Cor dos ícones */
+  color: #697565; /* Cor dos ícones */
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
