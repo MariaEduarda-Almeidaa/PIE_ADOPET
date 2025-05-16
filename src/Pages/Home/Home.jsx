@@ -81,7 +81,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Botão de login fora do vídeo */}
       <div className="login-button-container">
         <button onClick={handleLoginClick} className="login-button">
           Entrar
