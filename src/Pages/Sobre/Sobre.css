@@ -30,7 +30,7 @@ object-fit: contain;
 
 /* Individual developer card */
 .dev-card {
-  background: #697565; /* Cor de fundo dos cards */
+  background: transparent; /* Cor de fundo dos cards */
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
@@ -39,7 +39,7 @@ object-fit: contain;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white; /* Cor do texto */
+  color:#697565 ; /* Cor do texto */
 }
 
 .dev-card:hover {
@@ -67,13 +67,13 @@ object-fit: contain;
 /* Text styles */
 .dev-card h2 {
   font-size: 1.4rem;
-  color: white; /* Cor do texto */
+  color:#697565 ; /* Cor do texto */
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .dev-card p {
-  color: white; /* Cor do texto */
+  color: #697565; /* Cor do texto */
   margin-bottom: 1rem;
   font-size: 0.95rem;
   line-height: 1.5;
