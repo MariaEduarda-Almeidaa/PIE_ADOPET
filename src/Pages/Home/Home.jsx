@@ -83,7 +83,7 @@ const Home = () => {
 
       <div className="login-button-container">
         <button onClick={handleLoginClick} className="login-button">
-          Entrar
+          Saiba mais
         </button>
       </div>
     </div>

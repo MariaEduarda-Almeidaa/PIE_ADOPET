@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px;
 }
 
 .welcome-section {
@@ -27,6 +26,7 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto; /* centraliza */
 }
 
 .centered-video {
@@ -66,17 +66,24 @@
 /* Novo container para centralizar botão */
 .login-button-container {
   margin-top: 20px;
-  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .login-button {
-  background-color: #4CAF50;
+  background-color: #697565;
   color: white;
   border: none;
-  padding: 12px 25px;
+  padding: 16px 0;
   font-size: 1rem;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
+  width: 100%;
+  min-width: unset;
+  font-weight: bold;
+  transition: background 0.2s;
 }
 
 .login-button:hover {
