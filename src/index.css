@@ -8,9 +8,14 @@
   font-family: "Poppins", sans-serif;
 }
 
-html, body {
+html{
   width: 100%;
   overflow-x: hidden; /* Impede rolagem horizontal */
+}
+
+body {
+  margin: 0;
+  padding-top: 90px;
 }
 
 a {

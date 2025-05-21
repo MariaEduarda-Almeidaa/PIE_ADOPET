@@ -2,10 +2,10 @@
 .privacy-policy-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
+    padding-top: 90px;
   }
   
   .policy-header {
@@ -67,13 +67,7 @@
     text-align: center;
     margin-bottom: 2rem;
   }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .privacy-policy-container {
-      padding: 1rem;
-    }
-  }
+
 
   .contact-section {
     background-color: #697565;
@@ -92,4 +86,11 @@
   .contact-section h2 {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Borda sutil para contraste */
     padding-bottom: 0.5rem;
+  }
+
+    /* Responsive design */
+  @media (max-width: 768px) {
+    .privacy-policy-container {
+      padding: 90px;
+    }
   }
